@@ -54,7 +54,7 @@ final class Php74 extends Config
             'declare_equal_normalize' => true,
             'phpdoc_scalar' => false,
             'concat_space' => ['spacing' => 'one'],
-            'binary_operator_spaces' => ['align_equals' => true],
+            'binary_operator_spaces' => ['default' => 'align_single_space_minimal'],
             'no_superfluous_phpdoc_tags' => true,
             'no_empty_phpdoc' => true,
             'phpdoc_align' => true,
