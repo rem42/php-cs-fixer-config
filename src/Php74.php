@@ -20,6 +20,12 @@ final class Php74 extends Config
     {
         return [
             '@Symfony' => true,
+            '@Symfony:risky' => true,
+            '@PHP74Migration' => true,
+            '@PSR12' => true,
+            '@PSR12:risky' => true,
+            '@DoctrineAnnotation' => true,
+            '@PhpCsFixer' => true,
             'array_syntax' => [
                 'syntax' => 'short',
             ],
@@ -36,7 +42,6 @@ final class Php74 extends Config
                 'property' => 'single',
                 'const' => 'single',
             ],
-            '@PSR2' => true,
             '@DoctrineAnnotation' => true,
             'align_multiline_comment' => true,
             'array_indentation' => true,
