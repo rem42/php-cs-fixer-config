@@ -42,7 +42,6 @@ final class Php74 extends Config
                 'property' => 'single',
                 'const' => 'single',
             ],
-            '@DoctrineAnnotation' => true,
             'align_multiline_comment' => true,
             'array_indentation' => true,
             'blank_line_before_statement' => [
@@ -64,6 +63,7 @@ final class Php74 extends Config
             'no_empty_phpdoc' => true,
             'phpdoc_align' => true,
             'phpdoc_order' => true,
+            'php_unit_test_class_requires_covers' => false,
         ];
     }
 }
