@@ -14,7 +14,7 @@ final class Php74 extends Config
     }
 
     /**
-     * @return array<string, bool|array>
+     * @return array<string, array|bool>
      */
     public function getRules(): array
     {

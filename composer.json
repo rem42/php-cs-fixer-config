@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "friendsofphp/php-cs-fixer": "^2.16"
+    "friendsofphp/php-cs-fixer": "^3.2"
   },
   "require-dev": {
     "phpstan/phpstan": "0.12.*"
@@ -25,8 +25,8 @@
     "sort-packages": true
   },
   "scripts": {
-    "static-analysis": "./vendor/bin/phpstan analyse src --level=max --no-progress --no-cache -vvv",
-    "code-style-check": "./vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=false",
-    "code-style-fix": "./vendor/bin/php-cs-fixer fix"
+    "static-analysis": "./vendor/bin/phpstan analyse src --level=max --no-progress",
+    "code-style-check": "./vendor/bin/php-cs-fixer fix --dry-run --verbose --using-cache=no",
+    "code-style-fix": "./vendor/bin/php-cs-fixer fix --using-cache=no"
   }
 }
