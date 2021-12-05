@@ -2,9 +2,9 @@
 
 namespace Rem42\CS\Config;
 
-use PhpCsFixer\Config;
+use PhpCsFixer\Config as BaseConfig;
 
-final class Php74 extends Config
+final class Config extends BaseConfig
 {
     public function __construct()
     {
@@ -14,7 +14,7 @@ final class Php74 extends Config
     }
 
     /**
-     * @return array<string, array|bool>
+     * @return array<string, mixed|bool>
      */
     public function getRules(): array
     {
