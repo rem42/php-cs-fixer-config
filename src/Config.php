@@ -4,7 +4,7 @@ namespace Rem42\CS\Config;
 
 use PhpCsFixer\Config as BaseConfig;
 
-final class Config extends BaseConfig
+class Config extends BaseConfig
 {
     public function __construct()
     {
