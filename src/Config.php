@@ -8,7 +8,7 @@ class Config extends BaseConfig
 {
     public function __construct()
     {
-        parent::__construct('PHP 7.4');
+        parent::__construct('Rem42 PHP >= 7.4 config');
 
         $this->setRiskyAllowed(true);
     }
