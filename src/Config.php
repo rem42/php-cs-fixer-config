@@ -19,31 +19,18 @@ class Config extends BaseConfig
     public function getRules(): array
     {
         return [
-            '@Symfony'            => true,
-            '@Symfony:risky'      => true,
-            '@PHP74Migration'     => true,
-            '@PSR12'              => true,
-            '@PSR12:risky'        => true,
-            '@DoctrineAnnotation' => true,
-            '@PhpCsFixer'         => true,
-            'array_syntax'        => [
+            '@DoctrineAnnotation'     => true,
+            '@PHP74Migration'         => true,
+            '@PhpCsFixer'             => true,
+            '@PSR12'                  => true,
+            '@PSR12:risky'            => true,
+            '@Symfony'                => true,
+            '@Symfony:risky'          => true,
+            'array_indentation'       => true,
+            'align_multiline_comment' => true,
+            'array_syntax'            => [
                 'syntax' => 'short',
             ],
-            'no_unreachable_default_argument_value' => false,
-            'braces'                                => [
-                'allow_single_line_closure' => true,
-            ],
-            'heredoc_to_nowdoc' => false,
-            'phpdoc_summary'    => false,
-            'increment_style'   => ['style' => 'post'],
-            'yoda_style'        => true,
-            'ordered_imports'   => ['sort_algorithm' => 'alpha'],
-            'phpdoc_line_span'  => [
-                'property' => 'single',
-                'const'    => 'single',
-            ],
-            'align_multiline_comment'     => true,
-            'array_indentation'           => true,
             'blank_line_before_statement' => [
                 'statements' => [
                     'declare',
@@ -55,15 +42,27 @@ class Config extends BaseConfig
                     'try',
                 ],
             ],
-            'declare_equal_normalize'             => true,
-            'phpdoc_scalar'                       => false,
-            'concat_space'                        => ['spacing' => 'one'],
-            'binary_operator_spaces'              => ['default' => 'align_single_space_minimal'],
-            'no_superfluous_phpdoc_tags'          => true,
-            'no_empty_phpdoc'                     => true,
-            'phpdoc_align'                        => true,
+            'binary_operator_spaces'                => ['default' => 'align_single_space_minimal'],
+            'braces'                                => ['allow_single_line_closure' => true],
+            'concat_space'                          => ['spacing' => 'one'],
+            'declare_equal_normalize'               => true,
+            'heredoc_to_nowdoc'                     => false,
+            'increment_style'                       => ['style' => 'post'],
+            'no_empty_phpdoc'                       => true,
+            'no_superfluous_phpdoc_tags'            => true,
+            'no_unreachable_default_argument_value' => false,
+            'ordered_imports'                       => ['sort_algorithm' => 'alpha'],
+            'phpdoc_align'                          => true,
+            'phpdoc_line_span'                      => [
+                'property' => 'single',
+                'const'    => 'single',
+            ],
             'phpdoc_order'                        => true,
+            'phpdoc_scalar'                       => false,
+            'phpdoc_summary'                      => false,
+            'phpdoc_to_comment'                   => ['ignored_tags' => ['var']],
             'php_unit_test_class_requires_covers' => false,
+            'yoda_style'                          => true,
         ];
     }
 }
