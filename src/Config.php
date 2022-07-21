@@ -3,6 +3,7 @@
 namespace Rem42\CS\Config;
 
 use PhpCsFixer\Config as BaseConfig;
+use PhpCsFixerCustomFixers as CustomFixers;
 
 class Config extends BaseConfig
 {
@@ -10,6 +11,7 @@ class Config extends BaseConfig
     {
         parent::__construct('Rem42 PHP >= 7.4 config');
 
+        $this->registerCustomFixers(new CustomFixers\Fixers());
         $this->setRiskyAllowed(true);
     }
 
@@ -17,6 +19,17 @@ class Config extends BaseConfig
      * @return array<string, bool|mixed>
      */
     public function getRules(): array
+    {
+        return array_merge(
+            $this->addDefaultRules(),
+            $this->addCustomRules()
+        );
+    }
+
+    /**
+     * @return array<string, bool|mixed>
+     */
+    protected function addDefaultRules(): array
     {
         return [
             '@DoctrineAnnotation'     => true,
@@ -63,6 +76,27 @@ class Config extends BaseConfig
             'phpdoc_to_comment'                   => ['ignored_tags' => ['var']],
             'php_unit_test_class_requires_covers' => false,
             'yoda_style'                          => true,
+        ];
+    }
+
+    /**
+     * @return array<string, bool>
+     */
+    protected function addCustomRules(): array
+    {
+        return [
+            CustomFixers\Fixer\CommentSurroundedBySpacesFixer::name()            => true,
+            CustomFixers\Fixer\ConstructorEmptyBracesFixer::name()               => true,
+            CustomFixers\Fixer\DeclareAfterOpeningTagFixer::name()               => true,
+            CustomFixers\Fixer\MultilinePromotedPropertiesFixer::name()          => true,
+            CustomFixers\Fixer\NoDoctrineMigrationsGeneratedCommentFixer::name() => true,
+            CustomFixers\Fixer\NoUselessDoctrineRepositoryCommentFixer::name()   => true,
+            CustomFixers\Fixer\NoUselessStrlenFixer::name()                      => true,
+            CustomFixers\Fixer\PhpdocArrayStyleFixer::name()                     => true,
+            CustomFixers\Fixer\PhpdocParamOrderFixer::name()                     => true,
+            CustomFixers\Fixer\PhpdocSelfAccessorFixer::name()                   => true,
+            CustomFixers\Fixer\PhpdocTypesCommaSpacesFixer::name()               => true,
+            CustomFixers\Fixer\StringableInterfaceFixer::name()                  => true,
         ];
     }
 }
