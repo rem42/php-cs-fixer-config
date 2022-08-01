@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Rem42\CS\Config;
 
@@ -7,6 +7,9 @@ use PhpCsFixerCustomFixers as CustomFixers;
 
 class Config extends BaseConfig
 {
+    /** @var array<string, bool|mixed> */
+    protected array $rules = [];
+
     public function __construct()
     {
         parent::__construct('Rem42 PHP >= 7.4 config');
@@ -22,8 +25,18 @@ class Config extends BaseConfig
     {
         return array_merge(
             $this->addDefaultRules(),
-            $this->addCustomRules()
+            $this->addCustomRules(),
+            $this->rules,
         );
+    }
+
+    /**
+     * @param array<string, bool|mixed> $rules
+     */
+    public function addMoreRules(array $rules = []): self
+    {
+        $this->rules = array_merge($this->rules, $rules);
+        return $this;
     }
 
     /**
