@@ -45,16 +45,16 @@ class Config extends BaseConfig
     protected function addDefaultRules(): array
     {
         return [
-            '@DoctrineAnnotation'     => true,
-            '@PHP74Migration'         => true,
-            '@PhpCsFixer'             => true,
-            '@PSR12'                  => true,
-            '@PSR12:risky'            => true,
-            '@Symfony'                => true,
-            '@Symfony:risky'          => true,
-            'array_indentation'       => true,
+            '@DoctrineAnnotation' => true,
+            '@PHP74Migration' => true,
+            '@PhpCsFixer' => true,
+            '@PSR12' => true,
+            '@PSR12:risky' => true,
+            '@Symfony' => true,
+            '@Symfony:risky' => true,
+            'array_indentation' => true,
             'align_multiline_comment' => true,
-            'array_syntax'            => [
+            'array_syntax' => [
                 'syntax' => 'short',
             ],
             'blank_line_before_statement' => [
@@ -68,27 +68,28 @@ class Config extends BaseConfig
                     'try',
                 ],
             ],
-            'binary_operator_spaces'                => ['default' => 'align_single_space_minimal'],
-            'braces'                                => ['allow_single_line_closure' => true],
-            'concat_space'                          => ['spacing' => 'one'],
-            'declare_equal_normalize'               => true,
-            'heredoc_to_nowdoc'                     => false,
-            'increment_style'                       => ['style' => 'post'],
-            'no_empty_phpdoc'                       => true,
-            'no_superfluous_phpdoc_tags'            => true,
+            'multiline_whitespace_before_semicolons' => ['strategy' => 'new_line_for_chained_calls'],
+            'binary_operator_spaces' => ['default' => 'single_space'],
+            'braces' => ['allow_single_line_closure' => true],
+            'concat_space' => ['spacing' => 'one'],
+            'declare_equal_normalize' => true,
+            'heredoc_to_nowdoc' => false,
+            'increment_style' => ['style' => 'post'],
+            'no_empty_phpdoc' => true,
+            'no_superfluous_phpdoc_tags' => true,
             'no_unreachable_default_argument_value' => false,
-            'ordered_imports'                       => ['sort_algorithm' => 'alpha'],
-            'phpdoc_align'                          => true,
-            'phpdoc_line_span'                      => [
+            'ordered_imports' => ['sort_algorithm' => 'alpha'],
+            'phpdoc_align' => true,
+            'phpdoc_line_span' => [
                 'property' => 'single',
-                'const'    => 'single',
+                'const' => 'single',
             ],
-            'phpdoc_order'                        => true,
-            'phpdoc_scalar'                       => false,
-            'phpdoc_summary'                      => false,
-            'phpdoc_to_comment'                   => ['ignored_tags' => ['var']],
+            'phpdoc_order' => true,
+            'phpdoc_scalar' => false,
+            'phpdoc_summary' => false,
+            'phpdoc_to_comment' => ['ignored_tags' => ['var']],
             'php_unit_test_class_requires_covers' => false,
-            'yoda_style'                          => true,
+            'yoda_style' => true,
         ];
     }
 
@@ -98,18 +99,18 @@ class Config extends BaseConfig
     protected function addCustomRules(): array
     {
         return [
-            CustomFixers\Fixer\CommentSurroundedBySpacesFixer::name()            => true,
-            CustomFixers\Fixer\ConstructorEmptyBracesFixer::name()               => true,
-            CustomFixers\Fixer\DeclareAfterOpeningTagFixer::name()               => true,
-            CustomFixers\Fixer\MultilinePromotedPropertiesFixer::name()          => true,
+            CustomFixers\Fixer\CommentSurroundedBySpacesFixer::name() => true,
+            CustomFixers\Fixer\ConstructorEmptyBracesFixer::name() => true,
+            CustomFixers\Fixer\DeclareAfterOpeningTagFixer::name() => true,
+            CustomFixers\Fixer\MultilinePromotedPropertiesFixer::name() => true,
             CustomFixers\Fixer\NoDoctrineMigrationsGeneratedCommentFixer::name() => true,
-            CustomFixers\Fixer\NoUselessDoctrineRepositoryCommentFixer::name()   => true,
-            CustomFixers\Fixer\NoUselessStrlenFixer::name()                      => true,
-            CustomFixers\Fixer\PhpdocArrayStyleFixer::name()                     => true,
-            CustomFixers\Fixer\PhpdocParamOrderFixer::name()                     => true,
-            CustomFixers\Fixer\PhpdocSelfAccessorFixer::name()                   => true,
-            CustomFixers\Fixer\PhpdocTypesCommaSpacesFixer::name()               => true,
-            CustomFixers\Fixer\StringableInterfaceFixer::name()                  => true,
+            CustomFixers\Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,
+            CustomFixers\Fixer\NoUselessStrlenFixer::name() => true,
+            CustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
+            CustomFixers\Fixer\PhpdocParamOrderFixer::name() => true,
+            CustomFixers\Fixer\PhpdocSelfAccessorFixer::name() => true,
+            CustomFixers\Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
+            CustomFixers\Fixer\StringableInterfaceFixer::name() => true,
         ];
     }
 }

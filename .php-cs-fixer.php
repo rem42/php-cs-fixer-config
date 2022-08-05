@@ -7,7 +7,7 @@ $config
     ])
     ->getFinder()
     ->in([
-       __DIR__.'/src'
+        __DIR__ . '/src'
     ])
 ;
 
