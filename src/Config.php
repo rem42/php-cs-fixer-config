@@ -46,7 +46,7 @@ class Config extends BaseConfig
     {
         return [
             '@DoctrineAnnotation' => true,
-            '@PHP74Migration' => true,
+            '@PHP81Migration' => true,
             '@PhpCsFixer' => true,
             '@PSR12' => true,
             '@PSR12:risky' => true,
@@ -85,6 +85,7 @@ class Config extends BaseConfig
                 'const' => 'single',
             ],
             'phpdoc_order' => true,
+            'phpdoc_param_order' => true,
             'phpdoc_scalar' => false,
             'phpdoc_summary' => false,
             'phpdoc_to_comment' => ['ignored_tags' => ['var']],
@@ -104,12 +105,20 @@ class Config extends BaseConfig
             CustomFixers\Fixer\DeclareAfterOpeningTagFixer::name() => true,
             CustomFixers\Fixer\MultilinePromotedPropertiesFixer::name() => true,
             CustomFixers\Fixer\NoDoctrineMigrationsGeneratedCommentFixer::name() => true,
+            CustomFixers\Fixer\NoImportFromGlobalNamespaceFixer::name() => true,
+            CustomFixers\Fixer\NoUselessCommentFixer::name() => true,
+            CustomFixers\Fixer\NoUselessDirnameCallFixer::name() => true,
             CustomFixers\Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,
             CustomFixers\Fixer\NoUselessStrlenFixer::name() => true,
             CustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
-            CustomFixers\Fixer\PhpdocParamOrderFixer::name() => true,
+            CustomFixers\Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
+            CustomFixers\Fixer\PhpdocNoSuperfluousParamFixer::name() => true,
             CustomFixers\Fixer\PhpdocSelfAccessorFixer::name() => true,
+            CustomFixers\Fixer\PhpdocSingleLineVarFixer::name() => true,
             CustomFixers\Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
+            CustomFixers\Fixer\PhpdocTypesTrimFixer::name() => true,
+            CustomFixers\Fixer\SingleSpaceAfterStatementFixer::name() => true,
+            CustomFixers\Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             CustomFixers\Fixer\StringableInterfaceFixer::name() => true,
         ];
     }
