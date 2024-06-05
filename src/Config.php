@@ -3,6 +3,7 @@
 namespace Rem42\CS\Config;
 
 use PhpCsFixer\Config as BaseConfig;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 use PhpCsFixerCustomFixers as CustomFixers;
 
 class Config extends BaseConfig
@@ -12,10 +13,13 @@ class Config extends BaseConfig
 
     public function __construct()
     {
-        parent::__construct('Rem42 PHP >= 7.4 config');
+        parent::__construct('Rem42 PHP >= 8.1 config');
 
-        $this->registerCustomFixers(new CustomFixers\Fixers());
-        $this->setRiskyAllowed(true);
+        $this
+            ->registerCustomFixers(new CustomFixers\Fixers())
+            ->setRiskyAllowed(true)
+        ;
+        $this->setParallelConfig(ParallelConfigFactory::detect());
     }
 
     /**
@@ -80,6 +84,7 @@ class Config extends BaseConfig
             'no_unreachable_default_argument_value' => false,
             'ordered_imports' => ['sort_algorithm' => 'alpha'],
             'phpdoc_align' => true,
+            'phpdoc_array_type' => true,
             'phpdoc_line_span' => [
                 'property' => 'single',
                 'const' => 'single',
@@ -110,7 +115,6 @@ class Config extends BaseConfig
             CustomFixers\Fixer\NoUselessDirnameCallFixer::name() => true,
             CustomFixers\Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,
             CustomFixers\Fixer\NoUselessStrlenFixer::name() => true,
-            CustomFixers\Fixer\PhpdocArrayStyleFixer::name() => true,
             CustomFixers\Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
             CustomFixers\Fixer\PhpdocNoSuperfluousParamFixer::name() => true,
             CustomFixers\Fixer\PhpdocSelfAccessorFixer::name() => true,
